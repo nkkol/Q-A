@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="g8h-zg-3DE">
+            <objects>
+                <tableViewController storyboardIdentifier="MenuViewController" id="jWA-BW-Vc3" customClass="MenuViewController" customModule="Q_A_3_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="fH2-QM-2Kf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection footerTitle="" id="JhL-X7-IHh">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="xZJ-ew-MVN">
+                                        <rect key="frame" x="0.0" y="18" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xZJ-ew-MVN" id="bMX-aW-79e">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="ZYF-8Q-Dlv">
+                                                    <rect key="frame" x="16" y="30" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="8DI-F5-HQj"/>
+                                                        <constraint firstAttribute="height" constant="30" id="vSa-QK-XXU"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Ask" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oi2-qY-lj8">
+                                                    <rect key="frame" x="62" y="31.5" width="61" height="27.5"/>
+                                                    <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHr-d9-Y2P">
+                                                    <rect key="frame" x="32" y="77" width="327" height="2"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="Dd8-x4-KOg"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZYF-8Q-Dlv" firstAttribute="leading" secondItem="bMX-aW-79e" secondAttribute="leading" constant="16" id="IcM-F3-FCA"/>
+                                                <constraint firstItem="lHr-d9-Y2P" firstAttribute="leading" secondItem="bMX-aW-79e" secondAttribute="leadingMargin" constant="16" id="Qea-Ej-UQn"/>
+                                                <constraint firstItem="oi2-qY-lj8" firstAttribute="leading" secondItem="ZYF-8Q-Dlv" secondAttribute="trailing" constant="16" id="X7J-3k-TP3"/>
+                                                <constraint firstItem="oi2-qY-lj8" firstAttribute="centerY" secondItem="ZYF-8Q-Dlv" secondAttribute="centerY" id="YCm-Rd-XOl"/>
+                                                <constraint firstItem="ZYF-8Q-Dlv" firstAttribute="centerY" secondItem="bMX-aW-79e" secondAttribute="centerY" id="chr-O1-NCF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="lHr-d9-Y2P" secondAttribute="bottom" id="iAQ-uh-JA8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lHr-d9-Y2P" secondAttribute="trailing" id="mIf-ay-N7m"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="6Qw-jO-K6P">
+                                        <rect key="frame" x="0.0" y="108" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Qw-jO-K6P" id="sYe-vp-Y6P">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="idea-2" translatesAutoresizingMaskIntoConstraints="NO" id="LkO-i3-iL0">
+                                                    <rect key="frame" x="16" y="30" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="37b-9w-P3b"/>
+                                                        <constraint firstAttribute="height" constant="30" id="qtA-ty-T8N"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answered questions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTo-kJ-sko">
+                                                    <rect key="frame" x="62" y="31.5" width="172" height="27.5"/>
+                                                    <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="df0-dk-cvp">
+                                                    <rect key="frame" x="32" y="77" width="327" height="2"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="vM2-tJ-Uir"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="df0-dk-cvp" secondAttribute="trailing" id="3qT-L4-bwG"/>
+                                                <constraint firstItem="df0-dk-cvp" firstAttribute="leading" secondItem="sYe-vp-Y6P" secondAttribute="leadingMargin" constant="16" id="EdF-zh-VMj"/>
+                                                <constraint firstItem="LkO-i3-iL0" firstAttribute="leading" secondItem="sYe-vp-Y6P" secondAttribute="leading" constant="16" id="M4n-v0-8AH"/>
+                                                <constraint firstItem="XTo-kJ-sko" firstAttribute="leading" secondItem="LkO-i3-iL0" secondAttribute="trailing" constant="16" id="bug-Ax-OfR"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="df0-dk-cvp" secondAttribute="bottom" id="gcT-aP-8EE"/>
+                                                <constraint firstItem="XTo-kJ-sko" firstAttribute="centerY" secondItem="LkO-i3-iL0" secondAttribute="centerY" id="t7O-6y-2Jx"/>
+                                                <constraint firstItem="LkO-i3-iL0" firstAttribute="centerY" secondItem="sYe-vp-Y6P" secondAttribute="centerY" id="u1L-4a-Gze"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="vdn-ho-9aM">
+                                        <rect key="frame" x="0.0" y="198" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vdn-ho-9aM" id="F8S-xL-B5l">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question-6" translatesAutoresizingMaskIntoConstraints="NO" id="C4w-LY-mqq">
+                                                    <rect key="frame" x="16" y="30" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="4CD-hI-gnz"/>
+                                                        <constraint firstAttribute="width" constant="30" id="qC5-Hc-loU"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Non-answered questions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3j-zW-kVl">
+                                                    <rect key="frame" x="62" y="31.5" width="209.5" height="27.5"/>
+                                                    <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfk-6V-nfC">
+                                                    <rect key="frame" x="32" y="77" width="327" height="2"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="DsH-pB-V2j"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Dfk-6V-nfC" firstAttribute="leading" secondItem="F8S-xL-B5l" secondAttribute="leadingMargin" constant="16" id="Od7-Aa-zT3"/>
+                                                <constraint firstItem="H3j-zW-kVl" firstAttribute="leading" secondItem="C4w-LY-mqq" secondAttribute="trailing" constant="16" id="Wba-9E-miE"/>
+                                                <constraint firstItem="H3j-zW-kVl" firstAttribute="centerY" secondItem="C4w-LY-mqq" secondAttribute="centerY" id="gSJ-iW-vrO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Dfk-6V-nfC" secondAttribute="bottom" id="lWJ-Yc-TBc"/>
+                                                <constraint firstItem="C4w-LY-mqq" firstAttribute="leading" secondItem="F8S-xL-B5l" secondAttribute="leading" constant="16" id="mwr-Ng-56j"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Dfk-6V-nfC" secondAttribute="trailing" id="ozy-Nc-YUS"/>
+                                                <constraint firstItem="C4w-LY-mqq" firstAttribute="centerY" secondItem="F8S-xL-B5l" secondAttribute="centerY" id="peM-cV-hYA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="63H-18-7od">
+                                        <rect key="frame" x="0.0" y="288" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="63H-18-7od" id="dCD-Im-8Z1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="3U0-AL-uQL">
+                                                    <rect key="frame" x="16" y="30" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="dpP-DI-eFK"/>
+                                                        <constraint firstAttribute="height" constant="30" id="jQG-dr-gXd"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite questions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hy-eP-AtI">
+                                                    <rect key="frame" x="62" y="31.5" width="166.5" height="27.5"/>
+                                                    <fontDescription key="fontDescription" name="DevanagariSangamMN" family="Devanagari Sangam MN" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3Y-p3-iEO">
+                                                    <rect key="frame" x="32" y="77" width="327" height="2"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="9gW-ne-dbb"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="U3Y-p3-iEO" secondAttribute="trailing" id="4eB-m0-b1t"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="U3Y-p3-iEO" secondAttribute="bottom" id="Bty-ct-aMH"/>
+                                                <constraint firstItem="3hy-eP-AtI" firstAttribute="leading" secondItem="3U0-AL-uQL" secondAttribute="trailing" constant="16" id="YtS-3P-pmE"/>
+                                                <constraint firstItem="3U0-AL-uQL" firstAttribute="leading" secondItem="dCD-Im-8Z1" secondAttribute="leading" constant="16" id="eBb-EQ-Q3E"/>
+                                                <constraint firstItem="U3Y-p3-iEO" firstAttribute="leading" secondItem="dCD-Im-8Z1" secondAttribute="leadingMargin" constant="16" id="lLZ-Lr-69n"/>
+                                                <constraint firstItem="3U0-AL-uQL" firstAttribute="centerY" secondItem="dCD-Im-8Z1" secondAttribute="centerY" id="sPb-Ow-0mr"/>
+                                                <constraint firstItem="3hy-eP-AtI" firstAttribute="centerY" secondItem="3U0-AL-uQL" secondAttribute="centerY" id="wM5-7a-WJN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="jWA-BW-Vc3" id="oda-6P-anE"/>
+                            <outlet property="delegate" destination="jWA-BW-Vc3" id="E7x-EU-j5t"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ago-lA-30x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4" y="142.57871064467767"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="add" width="512" height="512"/>
+        <image name="heart" width="512" height="512"/>
+        <image name="idea-2" width="512" height="512"/>
+        <image name="question-6" width="512" height="512"/>
+    </resources>
+</document>

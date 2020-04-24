@@ -1,0 +1,131 @@
+//
+//  ToAskViewController.swift
+//  Q&A 3.0
+//
+//  Created by Inna Litvinenko on 4/21/20.
+//  Copyright © 2020 Inna Litvinenko. All rights reserved.
+//
+
+import UIKit
+
+class ToAskViewController: UIViewController {
+
+    let transition = SlideInTransition()
+    var modelController = ModelController()
+    let expertPicker = UIPickerView()
+
+    
+    @IBOutlet weak var questionField: UITextField!
+    @IBOutlet weak var expertField: UITextField!
+    
+    var question: String = ""
+    var expertNames = [String]()
+    var expertIDs = [UInt]()
+    var expertID: UInt = 1
+    var expertName: String = ""
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setMenuButton ()
+        setPicker()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        expertField.textColor = .lightGray
+        modelController.experts.forEach { expert in
+            expertNames.append(expert.name)
+        }
+        modelController.experts.forEach { expert in
+            expertIDs.append(expert.id)
+        }
+        expertPicker.delegate = self
+        expertPicker.dataSource = self
+        
+        print("ENs", expertNames)
+        print("EIDs", expertIDs)
+    }
+    
+    func setMenuButton () {
+        let menuButton = UIButton()
+               menuButton.setImage(UIImage(named: "menu"), for:  [])
+               menuButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+               let barButton = UIBarButtonItem(customView: menuButton)
+               self.navigationItem.leftBarButtonItem  = barButton
+    }
+    
+    @objc func donePicker() {
+        view.endEditing(true)
+    }
+    
+    func setPicker() {
+        let toolBar = UIToolbar()
+         toolBar.barStyle = UIBarStyle.default
+         toolBar.isTranslucent = true
+         toolBar.sizeToFit()
+         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.donePicker))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([flexSpace, doneButton], animated: true)
+        toolBar.setItems([doneButton], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        expertField.inputView = expertPicker
+        expertField.inputAccessoryView = toolBar
+    }
+    
+   @objc func buttonTapped() {
+    let storyBoard: UIStoryboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
+    let menuViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
+    menuViewController?.didTapMenuType = { menuType in
+        self.modelController.transitionToNew(menuType, self, self.modelController)
+        print (menuType)
+    }
+    menuViewController?.modalPresentationStyle = .overCurrentContext
+    menuViewController?.transitioningDelegate = self
+    present(menuViewController ?? self, animated: true)
+    }
+
+    @IBAction func getAQuestion(_ sender: UITextField) {
+        question = questionField.text ?? ""
+    }
+        
+    @IBAction func sendAQuestion(_ sender: UIButton) {
+        questionField.text = ""
+        print (question)
+        let parameters = "question=\(self.question)&expert=\(self.expertID)"
+        modelController.baseAlert("Are you sure you want to send your question?", question, self, parameters, .sendAQuestion)
+    }
+}
+
+extension ToAskViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = false
+        return transition
+    }
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = true
+        return transition
+    }
+}
+
+extension ToAskViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+           return 1
+       }
+       
+       func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return expertNames.count
+       }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        expertField.text = expertNames[row]
+        expertField.textColor = .black
+        expertID = expertIDs[row]
+        print (expertNames[row], expertIDs[row], expertID)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return expertNames[row]
+    }
+    
+}
