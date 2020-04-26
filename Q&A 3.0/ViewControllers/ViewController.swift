@@ -51,12 +51,29 @@ class ViewController: UITableViewController {
        
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
+        
+        DispatchQueue.main.async {
+        cell.isFav = false
+        DBManager.share.favQs?.forEach({ q in
+                   if q.id == cell.questionData.id {
+                       cell.isFav = true
+                   }
+               })
+               if cell.isFav {
+                   cell.button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+               }
+               else {
+                   cell.button.setImage(UIImage(systemName: "heart"), for: .normal)
+               }
+        }
+        
         cell.button.isHidden = modelController.isFav || !modelController.haveAnAnsw ? true : false
         let question = modelController.questions[indexPath.row].question 
         cell.label.text = question
         cell.questionData = modelController.questions[indexPath.row]
+        cell.sizeToFit()
+        cell.label.sizeToFit()
         return cell
-           
        }
 
     
@@ -115,6 +132,7 @@ class ViewController: UITableViewController {
 
                 //force unwrapping
                 DBManager.share.delete(question: (DBManager.share.favQs?[indexPath.row])!)
+                self.modelController.questions.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
                     
                  }))

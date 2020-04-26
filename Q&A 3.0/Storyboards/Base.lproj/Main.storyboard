@@ -15,25 +15,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="61" id="Mfg-9X-SfM" customClass="TableViewCell" customModule="Q_A_3_0" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="61"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="74" id="Mfg-9X-SfM" customClass="TableViewCell" customModule="Q_A_3_0" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mfg-9X-SfM" id="qIW-r4-AGb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkn-tz-bkc">
-                                            <rect key="frame" x="16" y="0.0" width="269" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkn-tz-bkc">
+                                            <rect key="frame" x="32" y="19.5" width="262" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="gC1-jR-hXw"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDM-SU-Cav">
-                                            <rect key="frame" x="329" y="11" width="30" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="fav">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDM-SU-Cav">
+                                            <rect key="frame" x="309" y="22" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="De8-sn-St9"/>
+                                                <constraint firstAttribute="height" constant="30" id="gBY-NG-UcP"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="heart" catalog="system">
                                                 <color key="titleColor" red="0.89813512559999997" green="0.78880291719999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
                                             <connections>
@@ -41,7 +46,16 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hDM-SU-Cav" firstAttribute="centerY" secondItem="qIW-r4-AGb" secondAttribute="centerY" id="KFg-Wh-gEQ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hDM-SU-Cav" secondAttribute="trailing" constant="20" id="VNt-nD-EfS"/>
+                                        <constraint firstItem="hDM-SU-Cav" firstAttribute="leading" secondItem="vkn-tz-bkc" secondAttribute="trailing" constant="15" id="iCj-d0-4jg"/>
+                                        <constraint firstItem="vkn-tz-bkc" firstAttribute="leading" secondItem="qIW-r4-AGb" secondAttribute="leadingMargin" constant="16" id="xjn-xo-vxF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="vkn-tz-bkc" firstAttribute="centerY" secondItem="Mfg-9X-SfM" secondAttribute="centerY" id="2nb-zh-WDc"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="button" destination="hDM-SU-Cav" id="TD6-yd-wNO"/>
                                     <outlet property="label" destination="vkn-tz-bkc" id="tyn-2H-bhX"/>
@@ -92,6 +106,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="64" height="54"/>
         <image name="menu" width="30" height="30"/>
     </resources>
 </document>

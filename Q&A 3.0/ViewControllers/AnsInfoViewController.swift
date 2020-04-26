@@ -23,6 +23,7 @@ class AnsInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print (currentQuestion, currentAnswer, currentExpert, currentAsking)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +31,10 @@ class AnsInfoViewController: UIViewController {
         answerLabel.text = currentAnswer
         expertLabel.text = "Asked by: \(currentExpert)"
         askingLabel.text = "Answered by: \(currentAsking)"
+        questionLabel.sizeToFit()
+        answerLabel.sizeToFit()
+        expertLabel.sizeToFit()
+        askingLabel.sizeToFit()
     }
 
 }

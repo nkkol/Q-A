@@ -71,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2120CB0245484370099CFB8 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				D2AEF08F2453448600B0C699 /* DBManager.swift */,
+				D2AEF08C2453276500B0C699 /* FavouritesModel.xcdatamodeld */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 		D233BF6D244B2B1800784C41 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +154,7 @@
 		D29D32F12448F76300D2E718 /* Q&A 3.0 */ = {
 			isa = PBXGroup;
 			children = (
+				D2120CB0245484370099CFB8 /* DataBase */,
 				D233BF6E244B2B2C00784C41 /* Model */,
 				D233BF6D244B2B1800784C41 /* ViewControllers */,
 				D233BF70244B2B5B00784C41 /* Storyboards */,
@@ -152,8 +162,6 @@
 				D233BF71244B2B9900784C41 /* Other */,
 				D29D33082448FE0100D2E718 /* Assets.xcassets */,
 				D29D33002448F76600D2E718 /* Info.plist */,
-				D2AEF08C2453276500B0C699 /* FavouritesModel.xcdatamodeld */,
-				D2AEF08F2453448600B0C699 /* DBManager.swift */,
 			);
 			path = "Q&A 3.0";
 			sourceTree = "<group>";

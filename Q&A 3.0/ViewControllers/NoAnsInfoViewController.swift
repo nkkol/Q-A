@@ -31,6 +31,8 @@ class NoAnsInfoViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         answerSent = false
+        questionLabel.sizeToFit()
+        expertLabel.sizeToFit()
     }
     
   

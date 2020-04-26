@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var button: UIButton!
+    
+    var isFav = false
+//    var indRow = 0
     
     var questionData = Question(answer: "", asked_by_id: 0, asking_Name: "", expert_Name: "", expert_id: 0, id: 0, question: "")
 
@@ -28,6 +32,21 @@ class TableViewCell: UITableViewCell {
 
     @IBAction func buttonTapped(_ sender: Any) {
         print("Okaaaay")
+        isFav = !isFav
+        if (isFav) {
         DBManager.share.saveQuestion(answer: questionData.answer ?? "", asked_by_id: Int(questionData.asked_by_id), asking_Name: questionData.asking_Name, expert_Name: questionData.expert_Name, expert_id: Int(questionData.expert_id), id: Int(questionData.id), question0: questionData.question)
+            button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            
+        }
+        else {
+            button.setImage(UIImage(systemName: "heart"), for: .normal)
+            DBManager.share.favQs?.forEach({ q in
+                if q.id == questionData.id {
+                    print ("We found it!!\n ID: \(questionData.id)")
+                    DBManager.share.delete(question: q)
+                }
+            })
+     
+        }
     }
 }
