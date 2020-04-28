@@ -18,21 +18,20 @@ class NoAnsInfoViewController: UIViewController {
     
     var currentQuestion = String()
     var currentExpert = String()
-    var answer = String()
+    var answer = ""
     var currentQuestionId = UInt()
-    
-    var answerSent = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print (currentQuestion, currentExpert)
         questionLabel.text = currentQuestion
         expertLabel.text = "Asked by: \(currentExpert)"
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-        answerSent = false
         questionLabel.sizeToFit()
         expertLabel.sizeToFit()
+        answerField.text = ""
+        answer = ""
     }
     
   
@@ -41,15 +40,12 @@ class NoAnsInfoViewController: UIViewController {
     }
     
     @IBAction func sendAnAnswer(_ sender: UIButton) {
-        answerField.text = ""
-        if !answerSent {
-            print("currentQuestionId ", currentQuestionId)
-        modelController.baseAlert(currentQuestion, answer, self, "answer=\(answer)&id=\(String(currentQuestionId))", .sendAnAnswer)
-        answer = ""
-        answerSent = true
+        if answer == "" {
+            modelController.baseAlert("Ooops!", "No answer has been founded :(", self, "", .error)
         }
         else {
-            modelController.baseAlert("Sorry:(", "You can send only one answer per one question", self, "", .error)
+        modelController.baseAlert(currentQuestion, answer, self, "answer=\(answer)&id=\(String(currentQuestionId))", .sendAnAnswer)
         }
     }
+    
 }

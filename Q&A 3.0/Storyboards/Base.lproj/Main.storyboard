@@ -23,7 +23,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkn-tz-bkc">
-                                            <rect key="frame" x="32" y="19.5" width="262" height="35"/>
+                                            <rect key="frame" x="32" y="19.5" width="287" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gC1-jR-hXw"/>
                                             </constraints>
@@ -31,13 +31,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDM-SU-Cav">
-                                            <rect key="frame" x="309" y="22" width="30" height="30"/>
+                                        <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDM-SU-Cav">
+                                            <rect key="frame" x="324" y="22" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="De8-sn-St9"/>
                                                 <constraint firstAttribute="height" constant="30" id="gBY-NG-UcP"/>
                                             </constraints>
-                                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" image="heart" catalog="system">
                                                 <color key="titleColor" red="0.89813512559999997" green="0.78880291719999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
@@ -48,8 +48,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="hDM-SU-Cav" firstAttribute="centerY" secondItem="qIW-r4-AGb" secondAttribute="centerY" id="KFg-Wh-gEQ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="hDM-SU-Cav" secondAttribute="trailing" constant="20" id="VNt-nD-EfS"/>
-                                        <constraint firstItem="hDM-SU-Cav" firstAttribute="leading" secondItem="vkn-tz-bkc" secondAttribute="trailing" constant="15" id="iCj-d0-4jg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hDM-SU-Cav" secondAttribute="trailing" constant="5" id="bYU-Py-xgt"/>
+                                        <constraint firstItem="hDM-SU-Cav" firstAttribute="leading" secondItem="vkn-tz-bkc" secondAttribute="trailing" constant="5" id="buD-aI-50Q"/>
                                         <constraint firstItem="vkn-tz-bkc" firstAttribute="leading" secondItem="qIW-r4-AGb" secondAttribute="leadingMargin" constant="16" id="xjn-xo-vxF"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -68,7 +68,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Answered questions" id="OpL-K0-oZB">
-                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="Zov-gQ-BiQ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Zov-gQ-BiQ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oxo-Ng-WTC">
                                 <rect key="frame" x="16" y="0.0" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -80,6 +80,12 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="MV9-gS-aw8">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refreshControlAction:" destination="58m-yo-yuA" eventType="valueChanged" id="LaN-8j-nOv"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <outlet property="menuButton" destination="Oxo-Ng-WTC" id="b1t-Kq-JCC"/>
                     </connections>
@@ -92,8 +98,8 @@
         <scene sceneID="Dbt-W8-hDv">
             <objects>
                 <navigationController id="GZK-ef-Dde" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hcP-3I-Zf2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="hcP-3I-Zf2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

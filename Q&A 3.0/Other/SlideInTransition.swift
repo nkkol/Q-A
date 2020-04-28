@@ -14,12 +14,12 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
     let dimmingView = UIView()
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
         guard let toVC = transitionContext.viewController(forKey: .to),
             let fromVC = transitionContext.viewController(forKey: .from)
             else { return }
         
         let containerView = transitionContext.containerView
-        
         let finalWidth = toVC.view.bounds.width * 0.8
         let finalHeight = toVC.view.bounds.height
         
@@ -32,12 +32,12 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
             toVC.view.frame  = CGRect(x: -finalWidth, y: 0, width: finalWidth, height: finalHeight)
         }
         
-        let transform = {
+        func transform () {
             self.dimmingView.alpha = 0.5
             toVC.view.transform = CGAffineTransform(translationX: finalWidth, y: 0)
         }
         
-        let identity = {
+        func identity () {
             self.dimmingView.alpha = 0.0
             fromVC.view.transform = .identity
         }
@@ -46,11 +46,10 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
         let isCancelled = transitionContext.transitionWasCancelled
         UIView.animate(withDuration: duration, animations: {
             self.isPresenting ? transform() : identity()
-        }) { (_) in
+        }) { _ in
             transitionContext.completeTransition(!isCancelled)
         }
     }
-    
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.5

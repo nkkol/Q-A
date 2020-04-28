@@ -15,37 +15,103 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Expert" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sES-GB-FuR">
-                                <rect key="frame" x="87" y="437" width="200" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5f-6I-9KS">
+                                <rect key="frame" x="66" y="60" width="243" height="129"/>
+                                <color key="backgroundColor" red="0.34670218829999999" green="0.63646239039999997" blue="0.76080304379999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="R5f-6I-9KS" secondAttribute="height" multiplier="81:43" id="OYa-OJ-bOB"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNj-hy-c3g">
+                                <rect key="frame" x="66" y="234" width="243" height="129.5"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kNj-hy-c3g" secondAttribute="height" multiplier="47:25" id="JL2-qo-1aX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sES-GB-FuR">
+                                <rect key="frame" x="85" y="305" width="205" height="34"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pNi-zT-Id5">
-                                <rect key="frame" x="87" y="374" width="200" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pNi-zT-Id5">
+                                <rect key="frame" x="85" y="131" width="205" height="34"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="getAQuestion:" destination="sJg-kY-WjL" eventType="editingChanged" id="TVX-lr-CIl"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-qK-tnL">
-                                <rect key="frame" x="169" y="493" width="36" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Send"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type your question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaB-di-W1b">
+                                <rect key="frame" x="114" y="85" width="147" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vaB-di-W1b" secondAttribute="height" multiplier="7:1" id="JqR-X7-6hE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an expert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALp-un-ITC">
+                                <rect key="frame" x="119.5" y="259" width="136" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ALp-un-ITC" secondAttribute="height" multiplier="136:21" id="da8-G6-4oi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-qK-tnL">
+                                <rect key="frame" x="145" y="413.5" width="85" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vcs-qK-tnL" secondAttribute="height" multiplier="85:82" id="gK8-o5-7fI"/>
+                                    <constraint firstAttribute="width" constant="85" id="yKh-WJ-Dmk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                <state key="normal" image="send"/>
                                 <connections>
                                     <action selector="sendAQuestion:" destination="sJg-kY-WjL" eventType="touchDown" id="s7d-MJ-bJl"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="question-6" translatesAutoresizingMaskIntoConstraints="NO" id="NkD-CM-WrB">
-                                <rect key="frame" x="77" y="104" width="220" height="203"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sES-GB-FuR" firstAttribute="leading" secondItem="Rh0-1R-ltG" secondAttribute="leading" constant="85" id="4Do-2C-W8w"/>
+                            <constraint firstItem="vaB-di-W1b" firstAttribute="top" secondItem="Rh0-1R-ltG" secondAttribute="top" constant="85" id="5fZ-6q-1oa"/>
+                            <constraint firstItem="R5f-6I-9KS" firstAttribute="centerX" secondItem="Rh0-1R-ltG" secondAttribute="centerX" id="6AT-04-psN"/>
+                            <constraint firstItem="pNi-zT-Id5" firstAttribute="centerX" secondItem="vaB-di-W1b" secondAttribute="centerX" id="6Fn-Jz-pGv"/>
+                            <constraint firstItem="R5f-6I-9KS" firstAttribute="top" secondItem="Rh0-1R-ltG" secondAttribute="top" constant="60" id="Erw-LB-eZJ"/>
+                            <constraint firstItem="vcs-qK-tnL" firstAttribute="centerX" secondItem="kNj-hy-c3g" secondAttribute="centerX" id="IOL-uy-FRK"/>
+                            <constraint firstItem="sES-GB-FuR" firstAttribute="top" secondItem="ALp-un-ITC" secondAttribute="bottom" constant="25" id="IhV-1q-Gbn"/>
+                            <constraint firstItem="Rh0-1R-ltG" firstAttribute="trailing" secondItem="R5f-6I-9KS" secondAttribute="trailing" constant="66" id="KEA-ty-ObB"/>
+                            <constraint firstItem="Rh0-1R-ltG" firstAttribute="trailing" secondItem="kNj-hy-c3g" secondAttribute="trailing" constant="66" id="NGq-TO-GuE"/>
+                            <constraint firstItem="pNi-zT-Id5" firstAttribute="leading" secondItem="Rh0-1R-ltG" secondAttribute="leading" constant="85" id="RtL-0b-1gn"/>
+                            <constraint firstItem="kNj-hy-c3g" firstAttribute="centerX" secondItem="R5f-6I-9KS" secondAttribute="centerX" id="T0c-Tk-s8Y"/>
+                            <constraint firstItem="vcs-qK-tnL" firstAttribute="leading" secondItem="Rh0-1R-ltG" secondAttribute="leading" constant="145" id="TbC-Bo-P4S"/>
+                            <constraint firstItem="sES-GB-FuR" firstAttribute="centerX" secondItem="ALp-un-ITC" secondAttribute="centerX" id="XRk-0I-Whx"/>
+                            <constraint firstItem="Rh0-1R-ltG" firstAttribute="trailing" secondItem="sES-GB-FuR" secondAttribute="trailing" constant="85" id="YMa-jb-9xW"/>
+                            <constraint firstItem="ALp-un-ITC" firstAttribute="top" secondItem="R5f-6I-9KS" secondAttribute="bottom" constant="70" id="cw5-1H-fmH"/>
+                            <constraint firstItem="vaB-di-W1b" firstAttribute="centerX" secondItem="Rh0-1R-ltG" secondAttribute="centerX" id="fps-6K-3PK"/>
+                            <constraint firstItem="kNj-hy-c3g" firstAttribute="top" secondItem="R5f-6I-9KS" secondAttribute="bottom" constant="45" id="jv8-L9-qhn"/>
+                            <constraint firstItem="kNj-hy-c3g" firstAttribute="leading" secondItem="Rh0-1R-ltG" secondAttribute="leading" constant="66" id="lYI-Ju-7yW"/>
+                            <constraint firstItem="R5f-6I-9KS" firstAttribute="leading" secondItem="Rh0-1R-ltG" secondAttribute="leading" constant="66" id="llY-9o-rX0"/>
+                            <constraint firstItem="vcs-qK-tnL" firstAttribute="top" secondItem="kNj-hy-c3g" secondAttribute="bottom" constant="50" id="lte-t8-GC8"/>
+                            <constraint firstItem="ALp-un-ITC" firstAttribute="centerX" secondItem="R5f-6I-9KS" secondAttribute="centerX" id="n6B-IF-zhS"/>
+                            <constraint firstItem="pNi-zT-Id5" firstAttribute="top" secondItem="vaB-di-W1b" secondAttribute="bottom" constant="25" id="oCf-Sb-rlC"/>
+                            <constraint firstItem="Rh0-1R-ltG" firstAttribute="trailing" secondItem="vcs-qK-tnL" secondAttribute="trailing" constant="145" id="q1g-uV-mJy"/>
+                            <constraint firstItem="Rh0-1R-ltG" firstAttribute="trailing" secondItem="pNi-zT-Id5" secondAttribute="trailing" constant="85" id="yDw-cj-dXo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Rh0-1R-ltG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Type your question" id="K0Z-aI-Vel"/>
@@ -60,6 +126,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="question-6" width="512" height="512"/>
+        <image name="send" width="512" height="512"/>
     </resources>
 </document>

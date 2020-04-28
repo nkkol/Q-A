@@ -28,10 +28,8 @@ class MenuViewController: UITableViewController {
         guard let menuType = MenuType(rawValue: indexPath.row)
             else { return }
         dismiss(animated: true) { [weak self] in
-            print ("Dismissing: \(menuType)")
             self?.didTapMenuType?(menuType)
         }
-        
     }
 
 }

@@ -17,6 +17,19 @@ class DBManager {
         }
     }
     
+    func getData() -> [FavouriteQuestion]? {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavouriteQuestion")
+        
+        do {
+            return try manageContext?.fetch(request) as? [FavouriteQuestion]
+        } catch {
+            print("Error when getting data")
+            return nil
+        }
+        
+    }
+    
     static var share = DBManager()
     let manageContext = appDelegate?.persistentContainer.viewContext
     
@@ -24,15 +37,6 @@ class DBManager {
         
         guard let manageContext = manageContext else { return }
         let question = FavouriteQuestion(context: manageContext)
-        
-  /*      question.answer = "answer"
-        question.asked_by_id = 1
-        question.asking_Name = "asking_Name"
-        question.expert_id = 2
-        question.id = 3
-        question.question = "question0"
-        question.expert_Name = "expert_Name"*/
-        
         question.answer = answer
         question.asked_by_id = Int64(asked_by_id)
         question.asking_Name = asking_Name
@@ -40,7 +44,6 @@ class DBManager {
         question.id = Int64(id)
         question.question = question0
         question.expert_Name = expert_Name
-    
         saveContext()
     }
     
@@ -48,7 +51,7 @@ class DBManager {
         do {
             try manageContext?.save()
         } catch {
-            print("Error save manageContext")
+            print("Error when saving manageContext")
         }
     }
     
@@ -57,16 +60,4 @@ class DBManager {
         saveContext()
     }
     
-    private func getData() -> [FavouriteQuestion]? {
-        
-        let req = NSFetchRequest<NSFetchRequestResult>(entityName: "FavouriteQuestion")
-        
-        do {
-            return try manageContext?.fetch(req) as? [FavouriteQuestion]
-        } catch {
-            print("Error getData")
-            return nil
-        }
-        
-    }
 }

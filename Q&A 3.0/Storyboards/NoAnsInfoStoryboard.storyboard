@@ -41,6 +41,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zk-0p-VLU">
                                         <rect key="frame" x="169.5" y="227.5" width="36" height="30"/>
                                         <state key="normal" title="Send"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="sendAnAnswer:" destination="ZAV-Be-iZ9" eventType="touchDown" id="RGj-Lr-7Pe"/>
                                         </connections>

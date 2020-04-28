@@ -15,7 +15,6 @@ class ModelController {
     var questions = [Question]()
     var experts = [Expert]()
     let gettingData = UrlSession()
-//    var toSave = Question(answer: "", asked_by_id: 0, asking_Name: "", expert_Name: "", expert_id: 0, id: 0, question: "")
     
     enum AlertType {
         case sendAnAnswer
@@ -25,25 +24,19 @@ class ModelController {
     
 
     func transitionToNew(_ menuType: MenuType, _ vc: UIViewController, _ modelController: ModelController) {
-
         switch menuType {
         case .answQ, .nAnswQ, .fav:
             isFav = menuType == .fav ? true : false
             haveAnAnsw = menuType == .answQ || menuType == .fav ? true : false
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            //force unwrapping
-            let newViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            newViewController.modelController = modelController
-            vc.navigationController?.pushViewController(newViewController, animated: false)
-        case .toAsk:
-            let storyboard: UIStoryboard = UIStoryboard(name: "ToAskStoryboard", bundle: nil)
-            //force unwrapping
-            let newViewController = storyboard.instantiateViewController(withIdentifier: "ToAskViewController") as! ToAskViewController
-            newViewController.modelController = modelController
-            vc.navigationController?.pushViewController(newViewController, animated: false)
-            
+            let newViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
+            newViewController?.modelController = modelController
+            vc.navigationController?.pushViewController(newViewController ?? vc, animated: false)
         default:
-            print("Default")
+            let storyboard: UIStoryboard = UIStoryboard(name: "ToAskStoryboard", bundle: nil)
+            let newViewController = storyboard.instantiateViewController(withIdentifier: "ToAskViewController") as? ToAskViewController
+            newViewController?.modelController = modelController
+            vc.navigationController?.pushViewController(newViewController ?? vc, animated: false)
         }
     }
     
@@ -54,14 +47,15 @@ class ModelController {
             alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { action in
                     self.gettingData.sendAQuestion(parameters)
             }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         case .sendAnAnswer:
             alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { action in
                 self.gettingData.sendAnAnswer(parameters)
             }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         default:
-            print("Oooops!")
+            alert.addAction(UIAlertAction(title: "Okay :(", style: .default, handler: nil))
         }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         vc.present(alert, animated: true)
     }
     

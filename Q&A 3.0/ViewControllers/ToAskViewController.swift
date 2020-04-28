@@ -13,7 +13,6 @@ class ToAskViewController: UIViewController {
     let transition = SlideInTransition()
     var modelController = ModelController()
     let expertPicker = UIPickerView()
-
     
     @IBOutlet weak var questionField: UITextField!
     @IBOutlet weak var expertField: UITextField!
@@ -21,7 +20,7 @@ class ToAskViewController: UIViewController {
     var question: String = ""
     var expertNames = [String]()
     var expertIDs = [UInt]()
-    var expertID: UInt = 1
+    var expertID: UInt = 0
     var expertName: String = ""
 
     override func viewDidLoad() {
@@ -32,7 +31,6 @@ class ToAskViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        expertField.textColor = .lightGray
         modelController.experts.forEach { expert in
             expertNames.append(expert.name)
         }
@@ -41,21 +39,26 @@ class ToAskViewController: UIViewController {
         }
         expertPicker.delegate = self
         expertPicker.dataSource = self
-        
-        print("ENs", expertNames)
-        print("EIDs", expertIDs)
+        title = "Ask a question below"
     }
     
     func setMenuButton () {
         let menuButton = UIButton()
-               menuButton.setImage(UIImage(named: "menu"), for:  [])
-               menuButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-               let barButton = UIBarButtonItem(customView: menuButton)
-               self.navigationItem.leftBarButtonItem  = barButton
+        menuButton.setImage(UIImage(named: "menu"), for:  [])
+        menuButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        let barButton = UIBarButtonItem(customView: menuButton)
+        self.navigationItem.leftBarButtonItem  = barButton
     }
     
-    @objc func donePicker() {
-        view.endEditing(true)
+    @objc func buttonTapped() {
+    let storyBoard: UIStoryboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
+    let menuViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
+    menuViewController?.didTapMenuType = { menuType in
+        self.modelController.transitionToNew(menuType, self, self.modelController)
+    }
+    menuViewController?.modalPresentationStyle = .overCurrentContext
+    menuViewController?.transitioningDelegate = self
+    present(menuViewController ?? self, animated: true)
     }
     
     func setPicker() {
@@ -70,18 +73,16 @@ class ToAskViewController: UIViewController {
         toolBar.isUserInteractionEnabled = true
         expertField.inputView = expertPicker
         expertField.inputAccessoryView = toolBar
+        expertField.addTarget(self, action: #selector(pickerBecameVisible), for: .touchDown)
     }
     
-   @objc func buttonTapped() {
-    let storyBoard: UIStoryboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-    let menuViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
-    menuViewController?.didTapMenuType = { menuType in
-        self.modelController.transitionToNew(menuType, self, self.modelController)
-        print (menuType)
+    @objc func donePicker() {
+           view.endEditing(true)
     }
-    menuViewController?.modalPresentationStyle = .overCurrentContext
-    menuViewController?.transitioningDelegate = self
-    present(menuViewController ?? self, animated: true)
+    
+    @objc func pickerBecameVisible() {
+        expertField.text = expertNames[0]
+        expertID = expertIDs[0]
     }
 
     @IBAction func getAQuestion(_ sender: UITextField) {
@@ -89,22 +90,36 @@ class ToAskViewController: UIViewController {
     }
         
     @IBAction func sendAQuestion(_ sender: UIButton) {
-        questionField.text = ""
-        print (question)
-        let parameters = "question=\(self.question)&expert=\(self.expertID)"
-        modelController.baseAlert("Are you sure you want to send your question?", question, self, parameters, .sendAQuestion)
+        if question == "" {
+             modelController.baseAlert("Ooops!", "No question has been founded.", self, "", .error)
+        }
+        else  {
+            if expertID == 0 {
+                modelController.baseAlert("Ooops!", "Expert field can not be empty.", self, "", .error)
+            }
+            else {
+                questionField.text = ""
+                question = ""
+                print (question)
+                let parameters = "question=\(self.question)&expert=\(self.expertID)"
+                modelController.baseAlert("Are you sure you want to send your question?", question, self, parameters, .sendAQuestion)
+            }
+        }
     }
 }
 
 extension ToAskViewController: UIViewControllerTransitioningDelegate {
+    
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = false
         return transition
     }
+    
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = true
         return transition
     }
+    
 }
 
 extension ToAskViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -119,7 +134,6 @@ extension ToAskViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         expertField.text = expertNames[row]
-        expertField.textColor = .black
         expertID = expertIDs[row]
         print (expertNames[row], expertIDs[row], expertID)
     }

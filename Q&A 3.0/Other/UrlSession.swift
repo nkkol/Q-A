@@ -21,7 +21,6 @@ class UrlSession {
         _ = session.dataTask(with: url, completionHandler: { data, response, error in
         do {
             let json = try JSONDecoder().decode([Question].self, from: data!)
-            print(haveAnAnsw ? "WITH A" : "WITHOUT A")
             print(json)
             modelController.questions = self.decode.fetchQuestions(json, modelController.questions)
             DispatchQueue.main.async {
@@ -68,7 +67,6 @@ class UrlSession {
     }
     
     func baseRequest(_ url: URL, _ method: String, _ parameters: String) {
-
         var request = URLRequest(url: url)
         request.httpMethod = method
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
