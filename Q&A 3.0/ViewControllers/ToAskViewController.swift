@@ -103,6 +103,8 @@ class ToAskViewController: UIViewController {
                 print (question)
                 let parameters = "question=\(self.question)&expert=\(self.expertID)"
                 modelController.baseAlert("Are you sure you want to send your question?", question, self, parameters, .sendAQuestion)
+                questionField.text = ""
+                question = ""
             }
         }
     }
