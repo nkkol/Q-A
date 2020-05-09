@@ -98,8 +98,6 @@ class ToAskViewController: UIViewController {
                 modelController.baseAlert("Ooops!", "Expert field can not be empty.", self, "", .error)
             }
             else {
-                questionField.text = ""
-                question = ""
                 print (question)
                 let parameters = "question=\(self.question)&expert=\(self.expertID)"
                 modelController.baseAlert("Are you sure you want to send your question?", question, self, parameters, .sendAQuestion)
